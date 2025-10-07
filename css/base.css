@@ -201,3 +201,25 @@ footer a {
         font-size: 1.7em;
     }
 }
+
+#construction-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff3700;
+    color: #fff;
+    padding: 8px 0;
+    font-size: 0.9em;
+    font-weight: 500;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    padding-top: 35px;
+}
+
+header.main-header {
+    top: 35px;
+}
