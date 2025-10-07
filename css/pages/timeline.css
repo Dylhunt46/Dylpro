@@ -1,0 +1,206 @@
+.download-cv-btn,
+.print-cv-btn {
+    background-color: #6a0dad;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 1em;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.download-cv-btn:hover,
+.print-cv-btn:hover {
+    background-color: #8a2be2;
+}
+
+.timeline-container {
+    padding: 2em 1em;
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: #333;
+    transform: translateX(-50%);
+}
+
+/* Styles pour le conteneur des dates et des cartes */
+.timeline-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2em 0;
+    position: relative;
+}
+
+/* Styles pour les éléments impairs */
+.timeline-wrapper:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+/* Styles pour le positionnement des éléments */
+.timeline-date {
+    width: 45%;
+    font-size: 0.8em;
+    text-align: center;
+    padding-right: 1em;
+}
+
+.timeline-link {
+    text-decoration: none;
+    position: relative;
+    flex-grow: 1;
+}
+
+.timeline-item {
+    padding: 1em 2em;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Styles pour le point (nouvelle implémentation) */
+.timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.timeline-item h3 {
+    color: #333;
+    font-size: 1em;
+}
+
+/* Styles pour les expériences (points et bords) */
+.timeline-wrapper.experience::before {
+    background-color: #8a2be2;
+}
+
+.timeline-wrapper:nth-child(odd) .timeline-item.experience {
+    border-left: 4px solid #8a2be2;
+    border-right: none;
+}
+
+.timeline-wrapper:nth-child(even) .timeline-item.experience {
+    border-left: 4px solid #8a2be2;
+    border-right: none;
+}
+
+/* Styles pour les formations (points et bords) */
+.timeline-wrapper.formation::before {
+    background-color: #f990a4;
+}
+
+.timeline-wrapper:nth-child(odd) .timeline-item.formation {
+    border-right: 4px solid #f990a4;
+    border-left: none;
+}
+
+.timeline-wrapper:nth-child(even) .timeline-item.formation {
+    border-right: 4px solid #f990a4;
+    border-left: none;
+}
+
+/* Effet de survol sur les titres */
+.timeline-link:hover h3 {
+    color: #8a2be2;
+}
+
+.timeline-link:hover .timeline-item.formation h3 {
+    color: #f990a4;
+}
+
+@media (max-width: 768px) {
+
+    /* Styles spécifiques à la timeline en mode mobile */
+    .timeline-container::before {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 2em 0;
+    }
+
+    .timeline-wrapper:nth-child(odd) {
+        flex-direction: column;
+        /* Force la colonne pour les éléments impairs aussi */
+    }
+
+    .timeline-date {
+        position: static;
+        width: 100%;
+        font-size: 0.8em;
+        padding: 0;
+        margin-left: 1em;
+        order: 2;
+    }
+
+    .timeline-link {
+        width: 100%;
+        order: 1;
+    }
+
+    .timeline-item {
+        margin-left: 2em;
+        width: calc(100% - 2em);
+    }
+
+    /* Bordures sur mobile */
+    .timeline-item.experience {
+        border-left: none;
+        border-right: 4px solid #8a2be2;
+    }
+
+    .timeline-wrapper:nth-child(odd) .timeline-item.experience {
+        border-right: 4px solid #8a2be2;
+        border-left: none;
+    }
+
+    .timeline-item.formation {
+        border-left: none;
+        border-right: 4px solid #f990a4;
+    }
+
+    .timeline-wrapper:nth-child(even) .timeline-item.formation {
+        border-left: none;
+        border-right: 4px solid #f990a4;
+    }
+
+    /* Position du point sur mobile */
+    .timeline-wrapper::before {
+        left: 5px;
+        transform: translate(-50%, -50%);
+    }
+
+    .timeline-item.experience,
+    .timeline-item.formation {
+        border-left: 4px solid #8a2be2;
+        /* Couleur pour les expériences */
+    }
+
+    .timeline-item.formation {
+        border-left: 4px solid #f990a4;
+        /* Couleur pour les formations */
+    }
+}

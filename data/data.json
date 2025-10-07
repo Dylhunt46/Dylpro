@@ -1,0 +1,63 @@
+{
+  "experiences": [
+    {
+      "id": "exp-1",
+      "title": "Analyste-Programmeur (Exemple)",
+      "company": "Entreprise Fictive",
+      "location": "Paris, France",
+      "start_date": "2022-09-01",
+      "end_date": "2023-08-31",
+      "description": "Analyse des besoins utilisateurs, développement de nouvelles fonctionnalités pour une application web, maintenance corrective et évolutive. Participation aux réunions de conception et de suivi de projet.",
+      "skills": ["JavaScript", "HTML", "CSS", "SQL", "Agile", "Gestion de projet"],
+      "contract_type": "CDD",
+      "type": "experience"
+    },
+    {
+      "id": "exp-2",
+      "title": "Stagiaire Développement Web (Ajouté)",
+      "company": "Startup XYZ",
+      "location": "Nantes, France",
+      "start_date": "2025-01-01",
+      "end_date": "2025-06-30",
+      "description": "Assistance au développement front-end et tests utilisateurs sur une nouvelle plateforme de services.",
+      "skills": ["HTML", "CSS", "Vue.js", "Tests unitaires"],
+      "contract_type": "Stage",
+      "type": "experience"
+    }
+  ],
+  "formations": [
+    {
+      "id": "form-1",
+      "title": "Formation Développeur Web",
+      "school": "École du Numérique",
+      "location": "Lyon, France",
+      "start_date": "2021-09-01",
+      "end_date": "2022-06-30",
+      "description": "Apprentissage des fondamentaux du développement front-end et back-end. Réalisation de plusieurs projets pratiques, dont un site e-commerce et une application de gestion de contenu.",
+      "skills": ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB"],
+      "type": "formation"
+    },
+    {
+      "id": "form-2",
+      "title": "Formation Développeur Java",
+      "school": "BGEZ",
+      "location": "Lyon, France",
+      "start_date": "2023-09-01",
+      "end_date": "2024-06-30",
+      "description": "Apprentissage des fondamentaux du développement Java. Réalisation de plusieurs projets pratiques, dont un site e-commerce et une application de gestion de contenu.",
+      "skills": ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB"],
+      "type": "formation"
+    },
+    {
+      "id": "form-2",
+      "title": "Formation Développeur Java",
+      "school": "BGEZ",
+      "location": "Lyon, France",
+      "start_date": "2013-09-01",
+      "end_date": "2019-06-30",
+      "description": "Apprentissage des fondamentaux du développement Java. Réalisation de plusieurs projets pratiques, dont un site e-commerce et une application de gestion de contenu.",
+      "skills": ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB"],
+      "type": "formation"
+    }
+  ]
+}

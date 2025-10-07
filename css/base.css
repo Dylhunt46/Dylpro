@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Poppins',
+        sans-serif;
+    color: #6a0dad;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: #8a2be2;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #6a0dad;
+}
+
+main,
+header,
+footer {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1em;
+}
+
+header {
+    background-color: #fff;
+    padding: 1em 2em;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #6a0dad;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+.page-header {
+    text-align: center;
+    padding: 3em 1em;
+}
+
+.exp-color {
+    color: #8a2be2;
+    font-weight: bold;
+}
+
+.form-color {
+    color: #f990a4;
+    font-weight: bold;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 4em 1em;
+    background: linear-gradient(to right, #e6e6fa, #d8bfd8);
+}
+
+.search-section,
+.last-training-section,
+.last-experience-section {
+    padding: 2em 1em;
+    background-color: #fff;
+    margin-top: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.experience-card,
+.training-card {
+    border-left: 4px solid #8a2be2;
+    padding-left: 1em;
+    margin-top: 1em;
+}
+
+.experience-card h3,
+.training-card h3 {
+    margin-bottom: 0.2em;
+}
+
+.company,
+.school {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 0.5em;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+.card-header h3 {
+    margin: 0;
+    color: #6a0dad;
+}
+
+.card-header .date {
+    font-style: italic;
+    color: #888;
+}
+
+.card-body p {
+    margin-bottom: 0.5em;
+}
+
+.tags {
+    margin-top: 1em;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #e6e6fa;
+    color: #6a0dad;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 2em 1em;
+    color: #888;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #888;
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 1em;
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0.5em 0;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.7em;
+    }
+}

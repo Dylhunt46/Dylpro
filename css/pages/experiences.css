@@ -1,0 +1,19 @@
+.experiences-section {
+    padding: 2em 1em;
+}
+
+.experiences-section h2 {
+    border-bottom: 2px solid #6a0dad;
+    padding-bottom: 0.5em;
+    margin-bottom: 1.5em;
+}
+
+.experiences-section,
+.experience-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
