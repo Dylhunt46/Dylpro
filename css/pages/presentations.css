@@ -5,6 +5,8 @@ main {
     text-align: center;
 }
 
+
+
 .profil-card {
     background-color: #fff;
     padding: 2em;
@@ -70,6 +72,10 @@ main {
 }
 
 @media (max-width: 768px) {
+    header {
+        margin-bottom: 35px;
+    }
+
     main {
         padding: 1em;
     }
