@@ -45,7 +45,7 @@ a {
 }
 
 a:hover {
-    color: #6a0dad;
+    color: #f990a4;
 }
 
 main,
@@ -211,7 +211,7 @@ footer a {
     color: #fff;
     padding: 8px 0;
     font-size: 0.9em;
-    font-weight: 500;
+    font-weight: 900;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
