@@ -12,6 +12,10 @@ body {
     overflow-x: hidden;
 }
 
+body {
+    padding-top: 150px;
+}
+
 h1,
 h2,
 h3 {
@@ -49,14 +53,21 @@ a:hover {
 }
 
 main,
-header,
 footer {
     max-width: 1200px;
     margin: auto;
     padding: 1em;
 }
 
+
+
 header {
+    max-width: 1200px;
+    margin: auto;
+    position: fixed;
+    top: 35px;
+    left: 0;
+    right: 0;
     background-color: #fff;
     padding: 1em 2em;
     border-bottom: 1px solid #ddd;
@@ -179,9 +190,15 @@ footer a {
 }
 
 @media (max-width: 768px) {
+
+    body {
+        padding-top: 0;
+    }
+
     header {
         flex-direction: column;
         text-align: center;
+        position: relative;
     }
 
     nav ul {
@@ -194,11 +211,15 @@ footer a {
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 
     h2 {
-        font-size: 1.7em;
+        font-size: 1.1em;
+    }
+
+    main {
+        margin-top: 80px;
     }
 }
 
@@ -216,10 +237,8 @@ footer a {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-body {
-    padding-top: 35px;
-}
 
-header.main-header {
+
+/* header.main-header {
     top: 35px;
-}
+} */
