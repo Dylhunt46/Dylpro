@@ -1,5 +1,4 @@
-.download-cv-btn,
-.print-cv-btn {
+.download-cv-btn {
     background-color: #6a0dad;
     color: #fff;
     border: none;
@@ -12,8 +11,7 @@
     margin-right: 10px;
 }
 
-.download-cv-btn:hover,
-.print-cv-btn:hover {
+.download-cv-btn:hover {
     background-color: #8a2be2;
 }
 

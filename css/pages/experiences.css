@@ -1,6 +1,6 @@
-body {
+/* body {
     padding-top: 500px;
-}
+} */
 
 .details-container {
     padding: 2em;
@@ -15,7 +15,6 @@ body {
 
 .page-header h1 {
     color: #6a0dad;
-    font-size: 2.5em;
 }
 
 #training {
@@ -96,6 +95,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    main {
+        margin-top: 45px;
+    }
+
     .details-container {
         padding: 1em;
     }
