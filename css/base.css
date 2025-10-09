@@ -13,7 +13,7 @@ body {
 }
 
 body {
-    padding-top: 150px;
+    padding-top: 130px;
 }
 
 h1,
@@ -106,6 +106,8 @@ nav ul li {
     font-weight: bold;
 }
 
+
+
 .hero-section {
     text-align: center;
     padding: 4em 1em;
@@ -122,11 +124,24 @@ nav ul li {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.last-training-section h2 {
+    color: #f990a4;
+}
+
 .experience-card,
 .training-card {
     border-left: 4px solid #8a2be2;
     padding-left: 1em;
     margin-top: 1em;
+}
+
+.training-card {
+    border-left: 4px solid #f990a4;
+}
+
+
+.training-card .card-header h3 {
+    color: #f990a4;
 }
 
 .experience-card h3,
