@@ -33,6 +33,7 @@ h2 {
 
 h3 {
     font-size: 1.5em;
+    margin-bottom: 0;
 }
 
 p {
@@ -98,6 +99,7 @@ nav ul li {
     z-index: 10;
     display: flex;
     flex-direction: column;
+    margin-bottom: 35px;
 }
 
 .exp-color {
@@ -112,6 +114,12 @@ nav ul li {
 
 .accueil-bg {
     background: linear-gradient(to right, #e6e6fa, #d8bfd8);
+}
+
+.general-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .search-section,
@@ -232,7 +240,7 @@ footer a {
     }
 
     main {
-        margin-top: 45px;
+        margin-top: 0px;
     }
 
     .experience-card,

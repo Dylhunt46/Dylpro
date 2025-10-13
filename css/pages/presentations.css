@@ -36,6 +36,84 @@ main {
     color: #555;
 }
 
+.presentation-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    max-width: 1000px;
+    margin: 2em auto;
+    text-align: left;
+}
+
+.general-info-card,
+.diplomas-card,
+.strengths-card {
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.general-info-card h2,
+.diplomas-card h2,
+.strengths-card h2 {
+    text-align: center;
+    color: #6a0dad;
+    /* Couleur principale */
+    margin-bottom: 1em;
+    font-size: 1.8em;
+}
+
+.general-info-card h3 {
+    margin-top: 1.5em;
+    font-size: 1.2em;
+    color: #8a2be2;
+    /* Couleur secondaire */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3em;
+}
+
+.info-list ul,
+.diploma-list {
+    list-style: none;
+    padding: 0;
+}
+
+.info-list li {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+}
+
+.diploma-list li {
+    margin-bottom: 1.5em;
+    padding-left: 10px;
+    border-left: 3px solid #f990a4;
+    /* Ligne de séparation pour les diplômes */
+}
+
+.diploma-title {
+    margin: 0;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.diploma-institution,
+.diploma-period {
+    margin: 0.2em 0;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.atouts-tags {
+    text-align: center;
+    /* Les styles de .tag sont hérités de base.css */
+}
+
 .competences-summary {
     margin-top: 3em;
 }
@@ -90,6 +168,11 @@ main {
 
     .profile-card h2 {
         font-size: 1.2em;
+    }
+
+    .presentation-details-grid {
+        grid-template-columns: 1fr;
+        /* Une seule colonne sur mobile */
     }
 
     .skills-grid {
