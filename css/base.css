@@ -57,7 +57,7 @@ footer {
 }
 
 main {
-    margin-top: 85px;
+    margin-top: 100px;
 }
 
 header {
@@ -72,6 +72,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 999;
 }
 
 .logo {
@@ -91,9 +92,12 @@ nav ul li {
 
 .page-header {
     text-align: center;
-    padding: 1.5em 1em;
+    padding: 2em 1em;
     margin-bottom: 0;
     position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
 }
 
 .exp-color {
@@ -106,11 +110,7 @@ nav ul li {
     font-weight: bold;
 }
 
-
-
-.hero-section {
-    text-align: center;
-    padding: 4em 1em;
+.accueil-bg {
     background: linear-gradient(to right, #e6e6fa, #d8bfd8);
 }
 
@@ -254,9 +254,3 @@ footer a {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
-
-
-/* header.main-header {
-    top: 35px;
-} */
