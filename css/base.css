@@ -122,7 +122,103 @@ nav ul li {
     gap: 10px;
 }
 
-.search-section,
+.search-section {
+    padding: 2em;
+    background-color: #e6e6fa;
+    border-radius: 10px;
+    margin-bottom: 2em;
+}
+
+.search-section h2 {
+    text-align: center;
+    margin-bottom: 1.5em;
+    color: #333;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    flex: 0 0 250px;
+    scroll-snap-align: start;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item:hover {
+    transform: translateY(-5px);
+}
+
+.carousel-item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.carousel-item h3 {
+    font-size: 1.2em;
+    color: #6a0dad;
+    margin-bottom: 5px;
+}
+
+.carousel-item .item-link {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.carousel-btn {
+    background-color: rgba(106, 13, 173, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 1.2em;
+    line-height: 1;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    background-color: #8a2be2;
+}
+
+.prev-btn {
+    margin-right: -10px;
+}
+
+.next-btn {
+    margin-left: -10px;
+}
+
 .last-training-section,
 .last-experience-section {
     padding: 2em 1em;
@@ -243,9 +339,25 @@ footer a {
         margin-top: 0px;
     }
 
+    .carousel-item {
+        flex: 0 0 130px;
+    }
+
+    .carousel-item h3 {
+        font-size: 0.9em;
+    }
+
+    .carousel-item .item-link {
+        font-size: 0.6em;
+    }
+
     .experience-card,
     .training-card {
         font-size: 0.75em;
+    }
+
+    .date {
+        font-size: 0.8em;
     }
 }
 

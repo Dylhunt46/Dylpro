@@ -78,4 +78,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     loadData();
+    setupCarousel();
 });
+
+// --- Carrousel --- 
+function setupCarousel() {
+    const track = document.querySelector('.carousel-track');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    // Vérifier si les éléments du carrousel existent sur la page
+    if (!track || !prevBtn || !nextBtn) {
+        return;
+    }
+
+    // Défilement
+    const scrollCarousel = (direction) => {
+        const itemWidth = track.querySelector('.carousel-item').offsetWidth + 20;
+        const scrollAmount = itemWidth * direction;
+
+        track.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    };
+
+    // Boutons
+    prevBtn.addEventListener('click', () => {
+        scrollCarousel(-1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        scrollCarousel(1);
+    });
+}
