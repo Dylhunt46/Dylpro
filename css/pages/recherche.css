@@ -64,6 +64,29 @@
     background-color: #8a2be2;
 }
 
+.info-message,
+.error-message {
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.info-message {
+    background-color: #e9f5ff;
+    /* Bleu très clair */
+    color: #0069d9;
+    border: 1px solid #b3d9ff;
+}
+
+.error-message {
+    background-color: #ffeaea;
+    /* Rouge très clair */
+    color: #dc3545;
+    border: 1px solid #ffb3b3;
+}
+
 @media (max-width: 600px) {
     .checkbox-grid {
         grid-template-columns: 1fr;

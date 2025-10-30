@@ -56,6 +56,19 @@
         <section class="content-section">
             <section class="search-section">
                 <h2>Trouvez les expériences qui vous intéressent</h2>
+                <h3>Recherche par mots clés</h3>
+                <form action="recherche.html" method="GET" class="text-search-form">
+                    <div class="search-input-group">
+                        <input type="text" id="global-search" name="q"
+                            placeholder="Rechercher par mot-clé (ex: JavaScript, CDI, Finance...)"
+                            aria-label="Recherche globale par mot-clé" required>
+                        <button type="submit" class="search-btn">
+                            🔍 Rechercher
+                        </button>
+                    </div>
+                </form>
+                <hr class="separator">
+                <h3>Rechercher par catégories</h3>
                 <div class="carousel-container">
                     <button class="carousel-btn prev-btn" aria-label="Elément précédent">&lt;</button>
                     <div class="carousel-track">

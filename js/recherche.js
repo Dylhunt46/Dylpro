@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const pageTitle = document.getElementById('page-title');
   const pageSubtitle = document.getElementById('page-subtitle');
 
-  // Conteneur où les résultats filtrés seront affichés, initialisé à null
   let resultsContainer = null;
   let allData = null; // Stocke les données JSON une fois chargées
 
-  // 1. Lire le paramètre 'type' de l'URL
+  // 1. Lire les paramètres de l'URL
   const urlParams = new URLSearchParams(window.location.search);
   const searchType = urlParams.get('type');
+  const searchQuery = urlParams.get('q'); // Récupère la requête textuelle
 
   /**
    * Génère la chaîne HTML pour afficher une carte (Expérience ou Formation).
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Filtre les éléments en fonction des checkboxes cochées et les affiche.
    */
-  function filterAndDisplayResults() {
+  function filterAndDisplayResultsByCheckbox() {
     if (!resultsContainer || !allData || !searchType) return;
 
     // 1. Récupérer les valeurs cochées
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let itemsToFilter = [];
-    let filterKey = 'title'; // La clé de filtrage est toujours 'title' pour 'metier' et 'diplome'
+    let filterKey = 'title';
 
     if (searchType === 'metier') {
       itemsToFilter = allData.experiences;
@@ -99,62 +99,145 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedTitles.includes(item[filterKey])
     );
 
-    // 3. Trier les éléments (du plus récent au plus ancien)
-    filteredItems.sort((a, b) => new Date(b.end_date) - new Date(a.end_date));
+    // 3. Trier et Afficher
+    displayItems(filteredItems);
+  }
 
-    // 4. Afficher les résultats
-    if (filteredItems.length === 0) {
+  /**
+   * Effectue une recherche textuelle sur l'ensemble des expériences et formations.
+   * @param {string} query - Le mot-clé de recherche.
+   * @param {Object} data - Les données complètes (expériences et formations).
+   */
+  function searchByText(query, data) {
+    if (!resultsContainer) return;
+    const normalizedQuery = query.toLowerCase().trim();
+
+    // Combine toutes les données en un seul tableau
+    const allItems = [...data.experiences, ...data.formations];
+
+    // Définir les champs dans lesquels effectuer la recherche
+    const searchFields = [
+      'title',
+      'company',
+      'school',
+      'description',
+      'location',
+      'contract_type',
+    ];
+
+    const results = allItems.filter((item) => {
+      // Vérifier les champs standards
+      for (const field of searchFields) {
+        const value = item[field];
+        if (value && String(value).toLowerCase().includes(normalizedQuery)) {
+          return true;
+        }
+      }
+
+      // Vérifier le tableau des compétences (skills)
+      if (item.skills && Array.isArray(item.skills)) {
+        if (
+          item.skills.some((skill) =>
+            skill.toLowerCase().includes(normalizedQuery)
+          )
+        ) {
+          return true;
+        }
+      }
+
+      return false;
+    });
+
+    // Trier et Afficher
+    displayItems(results);
+  }
+
+  /**
+   * Trie les résultats par date et les affiche dans le DOM.
+   * @param {Array} items - La liste finale d'objets (expériences/formations).
+   */
+  function displayItems(items) {
+    if (!resultsContainer) return;
+
+    // Tri par date de fin (du plus récent au plus ancien - OBLIGATOIRE)
+    items.sort((a, b) => new Date(b.end_date) - new Date(a.end_date));
+
+    if (items.length === 0) {
       resultsContainer.innerHTML =
-        '<p class="info-message">Aucun résultat trouvé pour les critères sélectionnés.</p>';
+        '<p class="info-message">Aucun résultat trouvé pour cette recherche.</p>';
       return;
     }
 
-    // Génération du HTML et injection dans le DOM
-    const resultsHtml = filteredItems
-      .map((item) => renderItemHTML(item))
-      .join('');
+    const resultsHtml = items.map((item) => renderItemHTML(item)).join('');
     resultsContainer.innerHTML = resultsHtml;
   }
 
-  async function fetchUniqueTitles() {
-    if (!searchType || (searchType !== 'metier' && searchType !== 'diplome')) {
-      filterContainer.innerHTML =
-        '<p class="error-message">Type de recherche non spécifié ou non valide.</p>';
-      return;
-    }
+  async function loadAndInitialize() {
+    // Initialisation du conteneur des résultats (HTML)
+    filterContainer.innerHTML =
+      '<section id="results-container" class="details-container"></section>';
+    resultsContainer = document.getElementById('results-container');
 
     try {
       const response = await fetch('data/data.json');
       if (!response.ok) {
         throw new Error('Erreur lors du chargement des données.');
       }
-      // Stockage des données complètes dans la variable globale allData
       allData = await response.json();
 
-      let titles = [];
+      // --- LOGIQUE DE DÉTECTION DU MODE DE RECHERCHE ---
 
-      // Détermination des titres et mise à jour du header
-      if (searchType === 'metier') {
-        titles = allData.experiences.map((exp) => exp.title);
-        pageTitle.textContent = 'Recherche par Métiers';
+      if (searchQuery) {
+        // CAS 1 : RECHERCHE TEXTUELLE (?q=...)
+        const queryDisplay =
+          searchQuery.length > 30
+            ? searchQuery.substring(0, 30) + '...'
+            : searchQuery;
+        pageTitle.textContent = `Résultats pour "${queryDisplay}"`;
+        pageSubtitle.textContent = `Recherche globale dans les expériences et formations.`;
+
+        // Exécuter la recherche et l'affichage
+        searchByText(searchQuery, allData);
+
+        // On n'affiche pas les filtres par checkbox dans ce mode
+      } else if (
+        searchType &&
+        (searchType === 'metier' || searchType === 'diplome')
+      ) {
+        // CAS 2 : RECHERCHE PAR FILTRES (?type=metier ou ?type=diplome)
+
+        let titles = [];
+        if (searchType === 'metier') {
+          titles = allData.experiences.map((exp) => exp.title);
+          pageTitle.textContent = 'Recherche par Métiers';
+          pageSubtitle.textContent =
+            'Cochez un ou plusieurs métiers pour voir les expériences correspondantes.';
+        } else if (searchType === 'diplome') {
+          titles = allData.formations.map((form) => form.title);
+          pageTitle.textContent = 'Recherche par Diplômes';
+          pageSubtitle.textContent =
+            'Cochez un ou plusieurs diplômes pour voir les formations correspondantes.';
+        }
+
+        // Génération et Affichage des Checkboxes
+        const uniqueTitles = [...new Set(titles)].sort();
+        displayCheckboxes(uniqueTitles);
+
+        // Message initial
+        resultsContainer.innerHTML =
+          '<p class="info-message">Sélectionnez vos filtres et cliquez sur "Afficher les résultats".</p>';
+      } else {
+        // CAS 3 : Aucun paramètre ou paramètre invalide
+        pageTitle.textContent = 'Recherche Invalide';
         pageSubtitle.textContent =
-          'Cochez un ou plusieurs métiers pour voir les expériences correspondantes.';
-      } else if (searchType === 'diplome') {
-        titles = allData.formations.map((form) => form.title);
-        pageTitle.textContent = 'Recherche par Diplômes';
-        pageSubtitle.textContent =
-          'Cochez un ou plusieurs diplômes pour voir les formations correspondantes.';
+          "Veuillez revenir à la page d'accueil pour effectuer une recherche valide.";
+        filterContainer.innerHTML =
+          '<p class="error-message">Veuillez utiliser le formulaire de recherche ou le carrousel sur la <a href="index.html">page d\'accueil</a>.</p>';
       }
-
-      // Filtrer pour n'avoir que les titres uniques et trier par ordre alphabétique
-      const uniqueTitles = [...new Set(titles)].sort();
-
-      // Afficher les filtres
-      displayCheckboxes(uniqueTitles);
     } catch (error) {
-      console.error('Erreur de chargement des données de recherche:', error);
+      console.error("Erreur fatale lors de l'initialisation:", error);
       filterContainer.innerHTML =
-        '<p>Désolé, impossible de charger les options de filtre.</p>';
+        '<p>Désolé, une erreur critique est survenue lors du chargement des données.</p>';
     }
   }
 
@@ -188,19 +271,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <section id="results-container" class="details-container"></section>
         `;
 
-    // Récupération de la référence du conteneur de résultats et ajout de l'écouteur
+    // Récupération de la référence du conteneur de résultats
     resultsContainer = document.getElementById('results-container');
+
+    // Ajout du gestionnaire d'événement
     const filterForm = document.getElementById('filter-form');
     filterForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      filterAndDisplayResults();
+      filterAndDisplayResultsByCheckbox(); // Appel de la fonction de filtrage par checkbox
     });
-
-    // Affichage initial du message d'instruction
-    resultsContainer.innerHTML =
-      '<p class="info-message">Sélectionnez vos filtres et cliquez sur "Afficher les résultats".</p>';
   }
 
-  // Lancer la fonction d'initialisation
-  fetchUniqueTitles();
+  // Lancement de la fonction d'initialisation
+  loadAndInitialize();
 });
