@@ -11,6 +11,10 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.filter-form {
+    margin-bottom: 20px;
+}
+
 .checkbox-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -34,6 +38,7 @@
 }
 
 .checkbox-item input[type="checkbox"] {
+    flex-shrink: 0;
     margin-right: 10px;
     accent-color: #6a0dad;
     min-width: 16px;
@@ -45,6 +50,8 @@
     cursor: pointer;
     font-weight: 500;
     color: #333;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .filter-submit-btn {
@@ -56,6 +63,7 @@
     border: none;
     border-radius: 6px;
     font-size: 1.1em;
+    font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -64,31 +72,130 @@
     background-color: #8a2be2;
 }
 
+
+.skill-category-choice {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+}
+
+.category-btn {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    background-color: #f0f0f5;
+    color: #6a0dad;
+    border: 2px solid #6a0dad;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-align: left;
+    word-break: break-word;
+}
+
+.category-btn:hover {
+    background-color: #6a0dad;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(106, 0, 213, 0.3);
+}
+
+.back-btn {
+    background: none;
+    color: #8a2be2;
+    border: none;
+    padding: 10px 0;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 15px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #6a0dad;
+}
+
+.small-info {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
 .info-message,
 .error-message {
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
     text-align: center;
-    font-size: 1.1em;
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 20px;
 }
 
 .info-message {
-    background-color: #e9f5ff;
-    /* Bleu très clair */
-    color: #0069d9;
-    border: 1px solid #b3d9ff;
+    background-color: #e6f7ff;
+    color: #0056b3;
 }
 
 .error-message {
-    background-color: #ffeaea;
-    /* Rouge très clair */
-    color: #dc3545;
-    border: 1px solid #ffb3b3;
+    background-color: #ffe6e6;
+    color: #cc0000;
 }
 
+
+
+
+@media (max-width: 768px) {
+
+    .details-container {
+        padding: 1em;
+    }
+
+    .detail-card h2 {
+        font-size: 1.5em;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+
 @media (max-width: 600px) {
+
+    .filter-container {
+        padding: 20px 15px;
+        margin: 0 10px;
+    }
+
+    .page-header h1 {
+        font-size: 2em;
+    }
+
+    .page-header p {
+        font-size: 1em;
+    }
+
     .checkbox-grid {
         grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .checkbox-item {
+        padding: 8px 12px;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+
+    .filter-submit-btn,
+    .category-btn {
+        font-size: 1em;
+        padding: 12px;
+    }
+
+    .back-btn {
+        text-align: center;
+        width: 100%;
+        display: block;
     }
 }

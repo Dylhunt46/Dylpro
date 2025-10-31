@@ -1,0 +1,64 @@
+{
+  "categories": [
+    {
+      "name": "Compétences Techniques (Hard Skills)",
+      "slug": "hard-skills",
+      "groups": [
+        {
+          "name": "Développement Web et Logiciel",
+          "slug": "dev-web-logiciel",
+          "skills": [
+            "HTML5/CSS3",
+            "JavaScript",
+            "React/NextJS",
+            "Node.js",
+            "JAVA SE",
+            "JEE",
+            "Algorithmie"
+          ]
+        },
+        {
+          "name": "Données et Qualité Web",
+          "slug": "donnees-qualite",
+          "skills": ["SQL", "Modélisation BDD", "SEO", "Accessibilité"]
+        }
+      ]
+    },
+    {
+      "name": "Compétences Transversales (Soft/Business Skills)",
+      "slug": "soft-skills",
+      "groups": [
+        {
+          "name": "Gestion et Organisation",
+          "slug": "gestion-organisation",
+          "skills": [
+            "Rigueur Administrative",
+            "Gestion Documentaire",
+            "Optimisation des Processus",
+            "Organisation du Temps",
+            "Autonomie",
+            "Management d'équipe",
+            "Coordination"
+          ]
+        },
+        {
+          "name": "Vente et Relation Client",
+          "slug": "vente-relation-client",
+          "skills": ["Accueil Client", "Conseil et Vente", "Négociation"]
+        },
+        {
+          "name": "Logistique et Opérations",
+          "slug": "logistique-operations",
+          "skills": [
+            "Gestion de Stock",
+            "Rangement",
+            "Contrôle Qualité",
+            "Opérations d'inventaire",
+            "Distribution",
+            "Mise en Rayon"
+          ]
+        }
+      ]
+    }
+  ]
+}

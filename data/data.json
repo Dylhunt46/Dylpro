@@ -8,7 +8,11 @@
       "start_date": "1991-11-01",
       "end_date": "1994-10-31",
       "description": "Accueil et orientation de la clientèle, gestion des opérations courantes au guichet, et tenue administrative des dossiers. Expérience formatrice en rigueur administrative et service client de haut niveau.",
-      "skills": ["Accueil Client", "Rigueur Administrative", "Gestion Documentaire"],
+      "skills": [
+        "Accueil Client",
+        "Rigueur Administrative",
+        "Gestion Documentaire"
+      ],
       "contract_type": "CDI",
       "type": "experience"
     },
@@ -20,7 +24,11 @@
       "start_date": "1996-01-01",
       "end_date": "1998-12-31",
       "description": "Encadrement et supervision d'une équipe de production, garantissant l'atteinte des objectifs de qualité et de délais. Compétence clé en management et en optimisation des processus de fabrication.",
-      "skills": ["Management d'équipe", "Coordination", "Optimisation des Processus"],
+      "skills": [
+        "Management d'équipe",
+        "Coordination",
+        "Optimisation des Processus"
+      ],
       "contract_type": "CDI",
       "type": "experience"
     },
@@ -68,7 +76,13 @@
       "start_date": "2009-12-01",
       "end_date": "2015-12-31",
       "description": "Encadrement, coordination et formation du service de préparation de commandes. Gestion de la qualité, optimisation des flux logistiques et planification opérationnelle. Expérience clé en gestion de projet et leadership.",
-      "skills": ["Management", "Logistique", "Organisation", "Planification", "Leadership"],
+      "skills": [
+        "Management",
+        "Logistique",
+        "Organisation",
+        "Planification",
+        "Leadership"
+      ],
       "contract_type": "CDI",
       "type": "experience"
     },
@@ -167,9 +181,32 @@
       "skills": ["Logistique", "Adaptabilité", "Gestion des stocks"],
       "contract_type": "CDD",
       "type": "experience"
+    },
+    {
+      "id": "exp-15",
+      "title": "Préparateur de commandes",
+      "company": "SOTHYS",
+      "location": "Ussac (19)",
+      "start_date": "2025-08-07",
+      "end_date": "2025-08-29",
+      "description": "Missions de préparation d'expéditions à l'international.",
+      "skills": ["Logistique", "Adaptabilité", "Gestion des stocks"],
+      "contract_type": "INTERIM",
+      "type": "experience"
     }
   ],
   "formations": [
+    {
+      "id": "form-4",
+      "title": "CACES r489",
+      "school": "Aspro",
+      "location": "Brive",
+      "start_date": "2025-09-08",
+      "end_date": "2025-09-09",
+      "description": "Recyclage.",
+      "skills": ["Conduite d'engin de manutention"],
+      "type": "formation"
+    },
     {
       "id": "form-1",
       "title": "Bac F1 Productique",
@@ -189,7 +226,15 @@
       "start_date": "2022-05-01",
       "end_date": "2023-07-01",
       "description": "Formation complète menant au Titre Professionnel. Maîtrise de la chaîne Front-end/Back-end : Intégration (HTML5/CSS3/SASS/TailwindCSS), interactivité (JavaScript/React/NextJS), consommation d'API REST, conception d'applications robustes (Gestion des erreurs, SQL).",
-      "skills": ["HTML5/CSS3", "JavaScript", "React/NextJS", "Node.js", "SQL", "SEO", "Accessibilité"],
+      "skills": [
+        "HTML5/CSS3",
+        "JavaScript",
+        "React/NextJS",
+        "Node.js",
+        "SQL",
+        "SEO",
+        "Accessibilité"
+      ],
       "type": "formation"
     },
     {
@@ -207,7 +252,16 @@
   "general_info": {
     "permis": "Permis B (Véhicule personnel)",
     "mobilité": "Télétravail ou Présentiel (Nord du Lot - Brive)",
-    "atouts": ["Adaptabilité", "Autonomie", "Rigueur", "Organisation", "Esprit d'équipe", "Curiosité", "Persévérance", "Créativité"],
+    "atouts": [
+      "Adaptabilité",
+      "Autonomie",
+      "Rigueur",
+      "Organisation",
+      "Esprit d'équipe",
+      "Curiosité",
+      "Persévérance",
+      "Créativité"
+    ],
     "centres_interet": ["Photo", "Randonnée"],
     "langues": ["Anglais (Niveau professionnel)"]
   }
